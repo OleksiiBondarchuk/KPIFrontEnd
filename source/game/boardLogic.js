@@ -171,7 +171,7 @@
       board.removeChild(card);
     });
     cardsArray = [];
-    timer.textContent = '01:00';
+    timer.textContent = '00:30';
   }
   function GenerateRandomEmojiSet() {
     let currentEmojiSet = [];
