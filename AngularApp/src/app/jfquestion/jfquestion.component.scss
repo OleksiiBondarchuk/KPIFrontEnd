@@ -20,8 +20,8 @@ body {
 }
 .header__title {
   text-align: center;
-  line-height: 47px;
-  font-size: 42px;
+  line-height: 47px !important;
+  font-size: 42px !important;
 }
 .main {
   display: flex;

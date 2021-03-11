@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JFQuestionComponent } from './jfquestion/jfquestion.component';
 import { StartPageComponent } from './start-page/start-page.component';
+import { CatManagerComponent } from './cat-manager/cat-manager.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JFQuestionComponent,
-    StartPageComponent
+    StartPageComponent,
+    CatManagerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CatManagerComponent } from './cat-manager/cat-manager.component';
 import { JFQuestionComponent } from './jfquestion/jfquestion.component';
 import { StartPageComponent } from './start-page/start-page.component';
 
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'startPage',
     pathMatch: 'full',
+  },
+  {
+    path: 'catManager',
+    component: CatManagerComponent,
   },
 ];
 
