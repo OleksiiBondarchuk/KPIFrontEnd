@@ -1,0 +1,21 @@
+<h1>Shows</h1>
+<div class="row">
+  <div class="col-8 mx-auto">
+    <table class="table">
+      <thead>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Date of Start</th>
+        <th>Team Size</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>{{ show.showID }}</td>
+          <td>{{ show.showName }}</td>
+          <td>{{ show.dateOfStart }}</td>
+          <td>{{ show.partisipantsCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

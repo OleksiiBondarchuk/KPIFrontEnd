@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CatManagerComponent } from './user/cat-manager/cat-manager.component';
 import { JFQuestionComponent } from './user/jfquestion/jfquestion.component';
 import { StartPageComponent } from './user/start-page/start-page.component';
+import { ShowsComponent } from './user/shows/shows.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'catManager',
     component: CatManagerComponent,
+  },
+  {
+    path: 'shows',
+    component: ShowsComponent,
   },
 ];
 
