@@ -6,19 +6,16 @@ import { AppComponent } from './app.component';
 import { JFQuestionComponent } from './jfquestion/jfquestion.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { CatManagerComponent } from './cat-manager/cat-manager.component';
-
+import { CatManagerService } from './cat-manager.service';
 @NgModule({
   declarations: [
     AppComponent,
     JFQuestionComponent,
     StartPageComponent,
-    CatManagerComponent
+    CatManagerComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [CatManagerService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

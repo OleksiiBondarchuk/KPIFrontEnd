@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CatManagerService } from '../cat-manager.service';
 
 @Component({
   selector: 'app-cat-manager',
@@ -22,7 +23,7 @@ export class CatManagerComponent implements OnInit {
   Years: number[] = [];
   TeamMembersSummary = [];
   TeamMembers = [];
-  constructor() {
+  constructor(private catManagerService: CatManagerService) {
     this.Designation = 'Team Leader';
     this.Username = 'Scott Smith';
     this.NoOfTeamMembers = 67;
@@ -46,28 +47,7 @@ export class CatManagerComponent implements OnInit {
       this.Years.push(i);
     }
 
-    this.TeamMembersSummary = [
-      {
-        Region: 'East',
-        TeamMembersCount: 20,
-        TemporarilyUnavailableMembers: 4,
-      },
-      {
-        Region: 'West',
-        TeamMembersCount: 15,
-        TemporarilyUnavailableMembers: 8,
-      },
-      {
-        Region: 'South',
-        TeamMembersCount: 17,
-        TemporarilyUnavailableMembers: 1,
-      },
-      {
-        Region: 'North',
-        TeamMembersCount: 15,
-        TemporarilyUnavailableMembers: 6,
-      },
-    ];
+    this.TeamMembersSummary = this.catManagerService.getTeamMembersSummary();
 
     this.TeamMembers = [
       {
