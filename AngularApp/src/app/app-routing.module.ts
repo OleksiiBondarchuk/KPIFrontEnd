@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatManagerComponent } from './cat-manager/cat-manager.component';
-import { JFQuestionComponent } from './jfquestion/jfquestion.component';
-import { StartPageComponent } from './start-page/start-page.component';
+import { CatManagerComponent } from './user/cat-manager/cat-manager.component';
+import { JFQuestionComponent } from './user/jfquestion/jfquestion.component';
+import { StartPageComponent } from './user/start-page/start-page.component';
 
 const routes: Routes = [
   {
