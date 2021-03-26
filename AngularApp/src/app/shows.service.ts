@@ -17,13 +17,13 @@ export class ShowsService {
       responseType: 'json',
     });
   }
-  updateProject(existingShow: Show): Observable<Show> {
+  updateShow(existingShow: Show): Observable<Show> {
     return this.httpClient.put<Show>('/api/shows', existingShow, {
       responseType: 'json',
     });
   }
 
-  deleteProject(ShowID: number): Observable<string> {
+  deleteShow(ShowID: number): Observable<string> {
     return this.httpClient.delete<string>('/api/shows?ShowID=' + ShowID);
   }
 }

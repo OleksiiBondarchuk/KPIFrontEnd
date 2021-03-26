@@ -52,7 +52,7 @@ export class ShowsComponent implements OnInit {
   }
 
   onUpdateClick() {
-    this.showsService.updateProject(this.editShow).subscribe(
+    this.showsService.updateShow(this.editShow).subscribe(
       (response: Show) => {
         var p: Show = new Show();
         p.showID = response.showID;
@@ -65,6 +65,28 @@ export class ShowsComponent implements OnInit {
         this.editShow.showName = null;
         this.editShow.dateOfStart = null;
         this.editShow.partisipantsCount = null;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  onDeleteClick(event, index: number) {
+    this.deleteIndex = index;
+    this.deleteShow.showID = this.shows[index].showID;
+    this.deleteShow.showName = this.shows[index].showName;
+    this.deleteShow.dateOfStart = this.shows[index].dateOfStart;
+    this.deleteShow.partisipantsCount = this.shows[index].partisipantsCount;
+  }
+
+  onDeleteConfirmClick() {
+    this.showsService.deleteShow(this.deleteShow.showID).subscribe(
+      (response) => {
+        this.shows.splice(this.deleteIndex, 1);
+        this.deleteShow.showID = null;
+        this.deleteShow.showName = null;
+        this.deleteShow.partisipantsCount = null;
+        this.deleteShow.dateOfStart = null;
       },
       (error) => {
         console.log(error);
