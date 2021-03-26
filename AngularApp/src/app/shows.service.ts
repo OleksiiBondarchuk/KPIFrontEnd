@@ -12,4 +12,7 @@ export class ShowsService {
   getAllShows(): Observable<Show[]> {
     return this.httpClient.get<Show[]>('/api/shows');
   }
+  insertShow(newShow: Show): Observable<Show> {
+    return this.httpClient.post<Show>('/api/shows', newShow);
+  }
 }

@@ -1,12 +1,21 @@
 <h1>Shows</h1>
 <div class="row">
   <div class="col-8 mx-auto">
+    <button
+      class="btn btn-primary create"
+      data-toggle="modal"
+      data-target="#newModal"
+    >
+      Create Show
+    </button>
+  </div>
+  <div class="col-8 mx-auto">
     <table class="table">
       <thead>
-        <th>Project ID</th>
-        <th>Project Name</th>
+        <th>Show ID</th>
+        <th>Show Name</th>
         <th>Date of Start</th>
-        <th>Team Size</th>
+        <th>Patrisipants count</th>
       </thead>
       <tbody>
         <tr *ngFor="let show of shows">
@@ -19,3 +28,95 @@
     </table>
   </div>
 </div>
+<form>
+  <div class="modal" role="dialog" id="newModal">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 700px">
+        <div class="modal-header">
+          <div class="modal-title">New Project</div>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="txtNewProjectID" class="col-sm-4 col-form-label"
+              >Show ID</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="text"
+                id="txtNewProjectID"
+                style="width: 100px"
+                class="form-control"
+                placeholder="Show ID"
+                name="ShowID"
+                [(ngModel)]="newShow.showID"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="txtNewShowName" class="col-sm-4 col-form-label"
+              >Show Name</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="text"
+                id="txtNewShowName"
+                class="form-control"
+                placeholder="Show Name"
+                name="ProjectName"
+                [(ngModel)]="newShow.showName"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="txtNewDateOfStart" class="col-sm-4 col-form-label"
+              >Date of Start</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="date"
+                id="txtNewDateOfStart"
+                style="width: 150px"
+                class="form-control"
+                placeholder="Date of Start"
+                name="DateOfStart"
+                [(ngModel)]="newShow.dateOfStart"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="txtTeamSize" class="col-sm-4 col-form-label"
+              >Patricipants count</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="number"
+                id="txtPatrisipantsCount"
+                style="width: 150px"
+                class="form-control"
+                placeholder="Patricipants count"
+                name="TeamSize"
+                [(ngModel)]="newShow.partisipantsCount"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-warning" data-dismiss="modal">Cancel</button>
+          <button
+            class="btn btn-success"
+            data-dismiss="modal"
+            (click)="onSaveClick()"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -7,41 +7,37 @@ import { CatManagerService } from '../../cat-manager.service';
   styleUrls: ['./cat-manager.component.scss'],
 })
 export class CatManagerComponent implements OnInit {
-  Designation: string;
+  UserRole: string;
   Username: string;
-  NoOfTeamMembers: number;
-  TotalCostOfAllProjects: number;
+  NoOfSavedCats: number;
+  TotalCatBalance: number;
   PendingTasks: number;
-  UpComingProjects: number;
-  ProjectCost: number;
-  CurrentExpenditure: number;
+  Rating: number;
+  ShowCost: number;
+  CurrentPrize: number;
   AvailableFunds: number;
   ToDay: Date;
 
-  Clients: string[];
-  Projects: string[];
+  Groups: string[];
+  Shows: string[];
   Years: number[] = [];
   TeamMembersSummary = [];
   TeamMembers = [];
   constructor(private catManagerService: CatManagerService) {
-    this.Designation = 'Team Leader';
-    this.Username = 'Scott Smith';
-    this.NoOfTeamMembers = 67;
-    this.TotalCostOfAllProjects = 240;
+    this.UserRole = 'Зареєстрований юзер';
+    this.Username = 'Коля Володацький';
+    this.NoOfSavedCats = 67;
+    this.TotalCatBalance = 240;
     this.PendingTasks = 15;
-    this.UpComingProjects = 0.2;
-    this.ProjectCost = 2113507;
-    this.CurrentExpenditure = 96788;
+    this.Rating = 0.2;
+    this.ShowCost = 2113507;
+    this.CurrentPrize = 96788;
     this.AvailableFunds = 52536;
     this.ToDay = new Date();
 
-    this.Clients = [
-      'ABC Infotech Ltd.',
-      'DEF Software Solutions',
-      'GHI Industries',
-    ];
+    this.Groups = ['За котів', 'Веселі коти', 'Барсуки'];
 
-    this.Projects = ['Project A', 'Project B', 'Project C', 'Project D'];
+    this.Shows = ['Show A', 'Show B', 'Show C', 'Show D'];
 
     for (var i = 2019; i >= 2010; i--) {
       this.Years.push(i);
@@ -51,60 +47,60 @@ export class CatManagerComponent implements OnInit {
 
     this.TeamMembers = [
       {
-        Region: 'East',
+        Region: 'За котів',
         Members: [
-          { ID: 1, Name: 'Ford', Status: 'Available' },
-          { ID: 2, Name: 'Miller', Status: 'Available' },
-          { ID: 3, Name: 'Jones', Status: 'Busy' },
-          { ID: 4, Name: 'James', Status: 'Busy' },
+          { ID: 1, Name: 'Катя', Status: 'Available' },
+          { ID: 2, Name: 'Михайло', Status: 'Available' },
+          { ID: 3, Name: 'Женя', Status: 'Busy' },
+          { ID: 4, Name: 'Гліб', Status: 'Busy' },
         ],
       },
       {
-        Region: 'West',
+        Region: 'Веселі коти',
         Members: [
-          { ID: 5, Name: 'Anna', Status: 'Available' },
-          { ID: 6, Name: 'Arun', Status: 'Available' },
-          { ID: 7, Name: 'Varun', Status: 'Busy' },
-          { ID: 8, Name: 'Jasmine', Status: 'Busy' },
+          { ID: 5, Name: 'Стас', Status: 'Available' },
+          { ID: 6, Name: 'Карл', Status: 'Available' },
+          { ID: 7, Name: 'Віка', Status: 'Busy' },
+          { ID: 8, Name: 'Стефан', Status: 'Busy' },
         ],
       },
       {
-        Region: 'South',
+        Region: 'Барсуки',
         Members: [
-          { ID: 9, Name: 'Krishna', Status: 'Available' },
-          { ID: 10, Name: 'Mohan', Status: 'Available' },
-          { ID: 11, Name: 'Raju', Status: 'Busy' },
-          { ID: 12, Name: 'Farooq', Status: 'Busy' },
+          { ID: 9, Name: 'Костя', Status: 'Available' },
+          { ID: 10, Name: 'Ніка', Status: 'Available' },
+          { ID: 11, Name: 'Антон', Status: 'Busy' },
+          { ID: 12, Name: 'Володимир', Status: 'Busy' },
         ],
       },
       {
-        Region: 'North',
+        Region: 'Зебри',
         Members: [
-          { ID: 13, Name: 'Jacob', Status: 'Available' },
-          { ID: 14, Name: 'Smith', Status: 'Available' },
-          { ID: 15, Name: 'Jones', Status: 'Busy' },
-          { ID: 16, Name: 'James', Status: 'Busy' },
+          { ID: 13, Name: 'Женя', Status: 'Available' },
+          { ID: 14, Name: 'Август', Status: 'Available' },
+          { ID: 15, Name: 'Саня', Status: 'Busy' },
+          { ID: 16, Name: 'Інокентій', Status: 'Busy' },
         ],
       },
     ];
   }
 
   onProjectChange($event) {
-    if ($event.target.innerHTML == 'Project A') {
-      this.ProjectCost = 2113507;
-      this.CurrentExpenditure = 96788;
+    if ($event.target.innerHTML == 'Show A') {
+      this.ShowCost = 2113507;
+      this.CurrentPrize = 96788;
       this.AvailableFunds = 52436;
-    } else if ($event.target.innerHTML == 'Project B') {
-      this.ProjectCost = 88923;
-      this.CurrentExpenditure = 22450;
+    } else if ($event.target.innerHTML == 'Show B') {
+      this.ShowCost = 88923;
+      this.CurrentPrize = 22450;
       this.AvailableFunds = 2640;
-    } else if ($event.target.innerHTML == 'Project C') {
-      this.ProjectCost = 662183;
-      this.CurrentExpenditure = 7721;
+    } else if ($event.target.innerHTML == 'Show C') {
+      this.ShowCost = 662183;
+      this.CurrentPrize = 7721;
       this.AvailableFunds = 9811;
-    } else if ($event.target.innerHTML == 'Project D') {
-      this.ProjectCost = 928431;
-      this.CurrentExpenditure = 562;
+    } else if ($event.target.innerHTML == 'Show D') {
+      this.ShowCost = 928431;
+      this.CurrentPrize = 562;
       this.AvailableFunds = 883;
     }
   }

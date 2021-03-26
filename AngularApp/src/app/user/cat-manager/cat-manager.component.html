@@ -9,7 +9,7 @@
           font-family: 'Arial Narrow Bold', sans-serif;
         "
       >
-        {{ Designation }}
+        {{ UserRole }}
       </div>
       <div class="col-12 text-center mt-2">
         <img src="assets/user.gif" width="120px" />
@@ -21,34 +21,34 @@
         {{ Username }}
       </div>
       <div class="col-12 text-center pt-2 pb-2" style="font-family: Arial">
-        TEAM SUMMARY
+        Ваша статистика
       </div>
       <div class="col-12 mb-3">
         <ul class="list-group">
           <li
             class="list-group-item d-flex justify-content-between align-items-center"
           >
-            NO. OF TEAM MEMBERS
+            Кількість збережених котиків
             <span
               class="badge badge-secondary badge-pill"
               style="font-size: 13px"
-              >{{ NoOfTeamMembers }}</span
+              >{{ NoOfSavedCats }}</span
             >
           </li>
           <li
             class="list-group-item d-flex justify-content-between align-items-center"
           >
-            TOTAL COST OF ALL PROJECTS
+            Ваш котиковий баланс
             <span
               class="badge badge-secondary badge-pill"
               style="font-size: 13px"
-              >$ {{ TotalCostOfAllProjects }} k</span
+              >$ {{ TotalCatBalance }} k</span
             >
           </li>
           <li
             class="list-group-item d-flex justify-content-between align-items-center"
           >
-            PENDING TASKS
+            Ваші заявки
             <span
               class="badge badge-secondary badge-pill"
               style="font-size: 13px"
@@ -58,11 +58,11 @@
           <li
             class="list-group-item d-flex justify-content-between align-items-center"
           >
-            UPCOMING PROJECTS
+            Ваш рейтинг
             <span
               class="badge badge-secondary badge-pill"
               style="font-size: 13px"
-              >{{ UpComingProjects }}</span
+              >{{ Rating }}</span
             >
           </li>
         </ul>
@@ -71,12 +71,12 @@
         class="col-12 text-center pt-2 pb-2"
         style="font-family: 'Arial Narrow'"
       >
-        CLIENTS
+        Ваші групи
       </div>
       <div class="col-12">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let client of Clients">
-            {{ client }}
+          <li class="list-group-item" *ngFor="let group of Groups">
+            {{ group }}
           </li>
         </ul>
       </div>
@@ -94,15 +94,12 @@
                 id="dropdownMenuButton"
                 data-toggle="dropdown"
               >
-                Project A
+                Show A
               </button>
               <div class="dropdown-menu">
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  *ngFor="let project of Projects"
-                  >{{ project }}</a
-                >
+                <a class="dropdown-item" href="#" *ngFor="let show of Shows">{{
+                  show
+                }}</a>
               </div>
             </div>
           </div>
@@ -129,20 +126,20 @@
         class="col-11 mx-auto mt-1 text-white text-center pt-2 pb-2 mx-auto rounded font-weight-bold"
         style="background-color: #718d97; font-family: 'Arial Narrow'"
       >
-        PROJECT BRIEFING
+        Заплановано шоу
       </div>
       <div class="col-12">
         <table class="table table-borderless">
           <tr>
-            <td>Project Cost</td>
-            <td>${{ ProjectCost }}</td>
+            <td>Ціна</td>
+            <td>${{ ShowCost }}</td>
           </tr>
           <tr>
-            <td>Current Expenditure</td>
-            <td>${{ CurrentExpenditure }}</td>
+            <td>Наявний приз</td>
+            <td>${{ CurrentPrize }}</td>
           </tr>
           <tr>
-            <td>Available Funds</td>
+            <td>Грошей зібрано</td>
             <td>${{ AvailableFunds }}</td>
           </tr>
         </table>
@@ -151,14 +148,14 @@
         class="col-11 mx-auto mt-1 text-white text-center pt-2 pb-2 mx-2 rounded font-weight-bold"
         style="background-color: #718d97; font-family: 'Arial Narrow'"
       >
-        TEAM MEMBERS SUMMARY
+        Ваша команда
       </div>
       <div class="col-12">
         <table class="table">
           <tr>
-            <th>Region</th>
-            <th>Team Members Count</th>
-            <th>Temporarily Unavailable Members</th>
+            <th>Команда</th>
+            <th>Кількість учасників</th>
+            <th>Не можуть прийняти участь</th>
           </tr>
           <tr *ngFor="let teamMemberSumary of TeamMembersSummary">
             <td>
@@ -181,7 +178,7 @@
         class="col-11 mx-auto mt-1 text-white text-center pt-1 pb-2 mx-2 rounded font-weight-bold"
         style="background-color: #718d97; font-family: 'Arial Narrow'"
       >
-        TEAM MEMBERS
+        Наявні команди
       </div>
       <div class="col-lg-12 pt-2">
         <div class="accordion" id="accordion1">

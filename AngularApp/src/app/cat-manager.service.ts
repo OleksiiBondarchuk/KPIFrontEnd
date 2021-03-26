@@ -5,22 +5,22 @@ export class CatManagerService {
   getTeamMembersSummary(): any[] {
     var TeamMembersSummary = [
       {
-        Region: 'East',
+        Region: 'За котів',
         TeamMembersCount: 20,
         TemporarilyUnavailableMembers: 4,
       },
       {
-        Region: 'West',
+        Region: 'Веселі коти',
         TeamMembersCount: 15,
         TemporarilyUnavailableMembers: 8,
       },
       {
-        Region: 'South',
+        Region: 'Барсуки',
         TeamMembersCount: 17,
         TemporarilyUnavailableMembers: 1,
       },
       {
-        Region: 'North',
+        Region: 'Зебри',
         TeamMembersCount: 15,
         TemporarilyUnavailableMembers: 6,
       },

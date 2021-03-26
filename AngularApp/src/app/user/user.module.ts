@@ -4,6 +4,7 @@ import { JFQuestionComponent } from './jfquestion/jfquestion.component';
 import { CatManagerComponent } from './cat-manager/cat-manager.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { ShowsComponent } from './shows/shows.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { ShowsComponent } from './shows/shows.component';
     StartPageComponent,
     ShowsComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   exports: [
     CatManagerComponent,
     JFQuestionComponent,
