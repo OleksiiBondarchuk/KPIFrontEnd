@@ -10,6 +10,10 @@ import { Show } from 'src/app/show';
 export class ShowsComponent implements OnInit {
   shows: Show[];
   newShow: Show = new Show();
+  editShow: Show = new Show();
+  editIndex: number = null;
+  deleteShow: Show = new Show();
+  deleteIndex: number = null;
 
   constructor(private showsService: ShowsService) {}
 
@@ -21,7 +25,6 @@ export class ShowsComponent implements OnInit {
   onSaveClick() {
     this.showsService.insertShow(this.newShow).subscribe(
       (response) => {
-        //Add Project to Grid
         var p: Show = new Show();
         p.showID = response.showID;
         p.showName = response.showName;
@@ -34,6 +37,34 @@ export class ShowsComponent implements OnInit {
         this.newShow.showName = null;
         this.newShow.dateOfStart = null;
         this.newShow.partisipantsCount = null;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  onEditClick(event, index: number) {
+    this.editShow.showID = this.shows[index].showID;
+    this.editShow.showName = this.shows[index].showName;
+    this.editShow.dateOfStart = this.shows[index].dateOfStart;
+    this.editShow.partisipantsCount = this.shows[index].partisipantsCount;
+    this.editIndex = index;
+  }
+
+  onUpdateClick() {
+    this.showsService.updateProject(this.editShow).subscribe(
+      (response: Show) => {
+        var p: Show = new Show();
+        p.showID = response.showID;
+        p.showName = response.showName;
+        p.dateOfStart = response.dateOfStart;
+        p.partisipantsCount = response.partisipantsCount;
+        this.shows[this.editIndex] = p;
+
+        this.editShow.showID = null;
+        this.editShow.showName = null;
+        this.editShow.dateOfStart = null;
+        this.editShow.partisipantsCount = null;
       },
       (error) => {
         console.log(error);
